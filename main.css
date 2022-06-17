@@ -8,21 +8,17 @@
   --dark-grayish-blue: hsl(217, 19%, 35%);
   --dark-blackish-blue: hsl(219, 29%, 14%);
   --white-color: hsl(0, 0%, 100%);
-  --light-gray:hsl(0, 0%, 81%);
+  --light-gray: hsl(0, 0%, 81%);
 }
 
-/* General CSS */
+/* General Components CSS  */
 
 html,
 body {
   margin: 0;
   padding: 0;
   font-family: var(--primary-font);
-}
-
-.author__image img{
-  width: 28px;
-  border-radius: 50%;
+  background: #ecf2f8;
 }
 
 .testimonial__num1,
@@ -35,13 +31,13 @@ body {
 
 .testimonial__content--author {
   display: flex;
-  width: 140px;
+  width: 150px;
   margin-left: 32px;
   margin-top: 26px;
   justify-content: space-around;
 }
 
-.testimonial__content--description{
+.testimonial__content--description {
   font-size: 13px;
   font-weight: var(--secondary-font-weight);
   margin: 0 32px 32px 32px;
@@ -50,12 +46,25 @@ body {
   line-height: 18px;
 }
 
+.testimonial__content--author .author__info {
+  font-size: 13px;
+  color: var(--white-color);
+  font-weight: var(--secondary-font-weight);
+}
 
+.author__image img {
+  width: 30px;
+  border-radius: 50%;
+}
 
+.author__info span {
+  color: var(--light-gray);
+  opacity: 0.75;
+}
 
-/*CSS for the 1st testimonial*/
+/*CSS End*/
 
-
+/*CSS for the GRID */
 
 .testimonial__num1 {
   grid-area: num1;
@@ -67,9 +76,11 @@ body {
 }
 .testimonial__num3 {
   grid-area: num3;
+  background: var(--white-color);
 }
 .testimonial__num4 {
   grid-area: num4;
+  background: var(--white-color);
 }
 .testimonial__num5 {
   grid-area: num5;
@@ -78,16 +89,20 @@ body {
 
 .testimonials {
   display: grid;
-  grid-template-columns: 540px 255px 255px;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
   grid-template-areas:
-    "num1 num2 num3"
-    "num4 num5 num3";
+    "num1 num1 num2 num3"
+    "num4  num5 num5 num3";
   width: 1110px;
   height: 572px;
   margin: 164px auto;
   gap: 24px 30px;
 }
+
+/*CSS END for GRID*/
+
+/* General CSS for testimonial num1 , 2 and 5 */
 
 .testimonial__num1 .testimonial__content--statement,
 .testimonial__num2 .testimonial__content--statement,
@@ -97,10 +112,27 @@ body {
   margin: 18px 32px 16px 32px;
   line-height: 24px;
   color: var(--white-color);
-  
 }
 
+.testimonial__num1 .testimonial__content--description,
+.testimonial__num2 .testimonial__content--description,
+.testimonial__num5 .testimonial__content--description {
+  color: var(--white-color);
+  opacity: 0.7;
+}
 
+/*CSS End*/
+
+/* CSS for border around testimonial -1 author image*/
+.testimonial__num1 .author__image img {
+  width: 28px;
+  border-radius: 50%;
+  border: 2px solid #a775f1;
+}
+
+/*CSS End*/
+
+/*CSS for the quote image*/
 
 .testimonial__content--statement,
 .testimonial__content--description {
@@ -115,36 +147,65 @@ body {
   z-index: 1;
 }
 
+/*CSS End*/
+
+/* General CSS for testimonial num3 and 4 */
+
 .testimonial__num3 .testimonial__content--description,
-.testimonial__num4 .testimonial__content--description{
-  
-    font-size: 13px;
-    font-weight: var(--secondary-font-weight);
-    margin: 0 32px 32px 32px;
-    color: var(--dark-grayish-blue);
-    opacity: 0.7;
-    line-height: 18px;
-  
+.testimonial__num4 .testimonial__content--description {
+  font-size: 13px;
+  font-weight: var(--secondary-font-weight);
+  margin: 0 32px 32px 32px;
+  color: var(--dark-grayish-blue);
+  opacity: 0.7;
+  line-height: 18px;
 }
 
-
-
-.testimonial__num1 .author__image img{
-  width: 28px;
-  border-radius: 50%;
-  border: 2px solid #A775F1;
+.testimonial__num3 .testimonial__content--statement,
+.testimonial__num4 .testimonial__content--statement {
+  margin: 18px 32px 24px 32px;
+  font-size: 20px;
+  font-weight: var(--primary-font-weight);
 }
 
- .testimonial__content--author .author__info{
-    font-size: 13px;
-    color: var(--white-color);
-    font-weight: var(--secondary-font-weight);
-
-
+.testimonial__num3 .testimonial__content--author .author__info,
+.testimonial__num4 .testimonial__content--author .author__info {
+  color: var(--dark-blackish-blue);
 }
 
-.author__info span{
-  color: var(--light-gray);
-  opacity: 0.75;
+.testimonial__num3 .testimonial__content--author .author__info span,
+.testimonial__num4 .testimonial__content--author .author__info span {
+  color: var(--dark-blackish-blue);
+  opacity: 0.5;
 }
 
+/* CSS End */
+
+/* Media Query for mobile layout */
+
+@media only screen and (max-width: 375px) {
+  .testimonials {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas:
+      "num1"
+      "num2"
+      "num4"
+      "num5"
+      "num3";
+    width: 327px;
+    height: 1824px;
+    margin: 71px auto;
+    gap: 24px 30px;
+  }
+
+  .testimonial__content .testimonial__content--extra-image {
+    position: absolute;
+    left: 59%;
+    top: 6.9%;
+    z-index: 1;
+  }
+}
+
+/*Media Query End*/
