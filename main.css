@@ -69,6 +69,7 @@ body {
 .testimonial__num1 {
   grid-area: num1;
   background: var(--violet-colour);
+  position: relative;
 }
 .testimonial__num2 {
   grid-area: num2;
@@ -142,9 +143,9 @@ body {
 
 .testimonial__content .testimonial__content--extra-image {
   position: absolute;
-  left: 665px;
-  top: 165px;
   z-index: 1;
+  left: 357px;
+  top: 0;
 }
 
 /*CSS End*/
@@ -202,8 +203,8 @@ body {
 
   .testimonial__content .testimonial__content--extra-image {
     position: absolute;
-    left: 59%;
-    top: 6.9%;
+    left: 200px;
+    top: 0;
     z-index: 1;
   }
 }
